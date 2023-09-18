@@ -1,5 +1,6 @@
 import { FC } from "react";
 import { PersonalData } from "../../types/person.types";
+import './index.scss';
 
 type TProps = {
   person: PersonalData;

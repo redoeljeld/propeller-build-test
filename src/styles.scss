@@ -1,0 +1,64 @@
+.container {
+  max-width: 1200px;
+  margin: auto;
+  .search-bar {
+    margin: 30px 20px 0;
+    input {
+      appearance: none;
+      -webkit-appearance: none;
+      border: 1px solid #000;
+      height: 25px;
+      min-height: 25px;
+      border-radius: 8px;
+      margin-right: 10px;
+      margin-bottom: 10px;
+    }
+    
+    select {
+      border: 1px solid #000;
+      height: 30px;
+      min-height: 30px;
+      border-radius: 8px;
+      min-width: 150px;
+      margin-right: 10px;
+      margin-bottom: 10px;
+    }
+  }
+  
+  .list {
+    display: flex;
+    flex-wrap: wrap;
+    margin: 20px;
+  
+    .item {
+      width: calc(33.333% - 8px);
+      margin-right: 12px;
+      margin-bottom: 12px;
+      background-color: antiquewhite;
+      padding: 15px;
+      border-radius: 12px;
+      box-sizing: border-box;
+      box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  
+      .name {
+        font-size: 20px;
+        font-weight: bold;
+      }
+  
+      .gender {
+        font-size: 14px;
+        text-transform: capitalize;
+        color: gray;
+        font-weight: 500;
+      }
+  
+      .hair_color, .skin_color, .eye_color {
+        text-transform: capitalize;
+      }
+    }
+  
+    .item:nth-child(3), .item:nth-child(6), .item:nth-child(9) {
+      margin-right: 0;
+    }
+  }
+}

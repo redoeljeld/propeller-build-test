@@ -14,7 +14,7 @@ export const CategorySelect: FC<TProps> = (props: TProps) => {
     onChange={onChange}
   >
     {object.map((item: {value: string, label: string}) => (
-      <option value={item.value}>{item.label}</option>
+      <option value={item.value} key={item.value}>{item.label}</option>
     ))};
   </select>;
 }

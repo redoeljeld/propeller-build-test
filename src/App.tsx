@@ -3,6 +3,8 @@ import axios from 'axios';
 import './styles.scss';
 import { EyeColor, Gender, HairColor, PersonalData, SkinColor } from './types/person.types';
 import { Person } from './components/person';
+import { CategorySelect } from './components/categorySelect';
+import { HAIR } from './const/hair';
 
 const fetchData = async () => {
   const response = await axios.get('https://swapi.dev/api/people');
@@ -66,19 +68,10 @@ const App = () => {
           value={searchTerm}
           onChange={(e) => setSearchTerm(e.target.value)}
         />
-        <select
-          value={hairColor}
+        <CategorySelect 
+          value={hairColor} 
           onChange={(e) => setHairColor(e.target.value as HairColor)}
-          className="hair-color-select"
-        >
-          <option value="none">Select a hair color</option>
-          <option value="blond">Blond</option>
-          <option value="brown">Brown</option>
-          <option value="brown, grey">Brown/Grey</option>
-          <option value="white, red">White/Red</option>
-          <option value="black">Black</option>
-          <option value="auburn, white">Auburn/White</option>
-        </select>
+          object={HAIR}/>
         <select
           value={skinColor}
           onChange={(e) => setSkinColor(e.target.value as SkinColor)}

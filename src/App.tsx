@@ -1,30 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import './styles.scss';
-
-type HairColor = 'blond' | 'n/a' | 'none' | 'brown' | 'brown, grey' | 'white, red' | 'black' | 'auburn, white';
-type SkinColor = 'fair' | 'gold' | 'white, blue' | 'white' | 'light' | 'white, red' | 'none';
-type EyeColor = 'blue' | 'yellow' | 'red' | 'brown' | 'blue-gray' | 'none';
-type Gender = 'male' | 'female' | 'n/a' | 'none';
-
-interface PersonalData {
-  name: string;
-  height: string;
-  mass: string;
-  hair_color: HairColor;
-  skin_color: SkinColor;
-  eye_color: EyeColor;
-  birth_year: string;
-  gender: Gender;
-  homeworld: string;
-  films: string[];
-  species: string[];
-  vehicles: string[];
-  starships: string[];
-  created: string;
-  edited: string;
-  url: string;
-}
+import { EyeColor, Gender, HairColor, PersonalData, SkinColor } from './types/person.types';
+import { Person } from './components/person';
 
 const fetchData = async () => {
   const response = await axios.get('https://swapi.dev/api/people');
@@ -136,19 +114,12 @@ const App = () => {
           <option value="female">Female</option>
         </select>
       </div>
+      
       <div className="list">
-        {filteredData.map((person) => (
-          <div key={person.name} className="item">
-            <div className="name">{person.name}</div>
-            <div className="gender">{person.gender}</div>
-            <div className="height">Height: {person.height}cm</div>
-            <div className="mass">Weight: {person.mass}kg</div>
-            <div className="hair_color">Hair Color: {person.hair_color}</div>
-            <div className="skin_color">Skin Color: {person.skin_color}</div>
-            <div className="eye_color">Eye Color: {person.eye_color}</div>
-          </div>
-        ))}
-      </div>
+      {filteredData.map((person) => (
+        <Person person={person} />
+      ))}
+    </div>
     </div>
   );
 };
